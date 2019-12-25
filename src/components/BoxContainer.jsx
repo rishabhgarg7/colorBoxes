@@ -5,6 +5,7 @@ import ColorBox from "./ColorBox";
 
 class BoxContainer extends Component {
   static defaultProps = {
+    nboxes: 16,
     allcolors: [
       "#CD5C5C",
       "#F08080",
@@ -34,20 +35,9 @@ class BoxContainer extends Component {
   render() {
     return (
       <div className="BoxContainer">
-        <ColorBox bgcolor={this.selectColor()} />
-        <ColorBox bgcolor={this.selectColor()} />
-        <ColorBox bgcolor={this.selectColor()} />
-        <ColorBox bgcolor={this.selectColor()} />
-        <ColorBox bgcolor={this.selectColor()} />
-        <ColorBox bgcolor={this.selectColor()} />
-        <ColorBox bgcolor={this.selectColor()} />
-        <ColorBox bgcolor={this.selectColor()} />
-        <ColorBox bgcolor={this.selectColor()} />
-        <ColorBox bgcolor={this.selectColor()} />
-        <ColorBox bgcolor={this.selectColor()} />
-        <ColorBox bgcolor={this.selectColor()} />
-        <ColorBox bgcolor={this.selectColor()} />
-        <ColorBox bgcolor={this.selectColor()} />
+        {Array.from({ length: this.props.nboxes }).map(n => (
+          <ColorBox bgcolor={this.selectColor()} />
+        ))}
       </div>
     );
   }
