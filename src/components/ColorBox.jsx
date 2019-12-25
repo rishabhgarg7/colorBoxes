@@ -36,10 +36,15 @@ class ColorBox extends Component {
     //store the current color of box
     let val = this.state.bgcolor;
     // create a new array w/o the present color
-    let newColorArray = this.props.allcolors.filter(item => item !== value);
+    let newColorArray = [...this.props.allcolors];
+    let indexOfColor = newColorArray.indexOf(val);
+
+    // reference:https://stackoverflow.com/questions/5767325/how-do-i-remove-a-particular-element-from-an-array-in-javascript
+    if (indexOfColor > -1) {
+      newColorArray.splice(indexOfColor, 1);
+    }
     // pick any ranadom color from new array
-    const ncolors = newColorArray.length;
-    let ind = Math.floor(Math.random() * ncolors);
+    let ind = Math.floor(Math.random() * newColorArray.length);
     let newColor = this.props.allcolors[ind];
     this.setState({ bgcolor: newColor });
   }
