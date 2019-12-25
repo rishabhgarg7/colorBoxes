@@ -11,6 +11,7 @@ class ColorBox extends Component {
   }
 
   static defaultProps = {
+    bgcolor: "pink",
     allcolors: [
       "#CD5C5C",
       "#F08080",
