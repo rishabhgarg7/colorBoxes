@@ -1,2 +1,0 @@
-# colorBoxes
-Created with CodeSandbox
